@@ -27,3 +27,18 @@ types:
     MoviePremieres:
         type: Movie[]
 
+resourceTypes:
+  Collection:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              type: <<item>>
+
+/movies:
+  /premieres:
+    type:  { Collection: {item : MoviePremieres } }
+
+  /{id}:
+    type:  { Collection: {item : Movie } }
